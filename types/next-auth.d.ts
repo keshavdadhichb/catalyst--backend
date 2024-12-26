@@ -1,15 +1,17 @@
+import 'next-auth';
 import { DefaultSession } from "next-auth"
 
-declare module "next-auth" {
+declare module 'next-auth' {
   interface User {
-    role?: string
-    userId?: string
+    role?: 'student' | 'faculty';
+    userId?: string;
   }
 
   interface Session {
     user: {
-      role?: string
-      userId?: string
-    } & DefaultSession["user"]
+      role?: 'student' | 'faculty';
+      userId?: string;
+      email?: string | null;
+    } & DefaultSession['user'];
   }
 } 
